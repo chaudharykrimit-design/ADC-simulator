@@ -335,25 +335,25 @@ function updateLineCoding() {
             data.push(bit === '1' ? 1 : -1);
             labels.push(i);
         });
-        lineCodingChart.data.datasets[0].stepped = 'before';
+        lineCodingChart.data.datasets[0].stepped = 'after';
     } else if (activeCoding === 'rz') {
         bits.forEach((bit, i) => {
             if (bit === '1') {
                 data.push(1);
                 data.push(0);
             } else {
-                data.push(0);
+                data.push(-1);
                 data.push(0);
             }
             labels.push(i);
             labels.push(i + 0.5);
         });
-        lineCodingChart.data.datasets[0].stepped = 'before';
+        lineCodingChart.data.datasets[0].stepped = 'after';
     }
     
     // Add an extra point at the end to finish the line
     if (labels.length > 0) {
-        labels.push(labels[labels.length - 1] + 0.5);
+        labels.push(bits.length);
         data.push(data[data.length - 1]);
     }
     
