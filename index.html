@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADC Simulator | Analog & Digital Communication Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">ADC <span>Simulator</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#visualizer">Signals</a></li>
+                <li><a href="#sampling">Sampling</a></li>
+                <li><a href="#modulation">Modulation</a></li>
+                <li><a href="#noise">Noise</a></li>
+                <li><a href="#linecoding">Line Coding</a></li>
+            </ul>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Professional Educational Tool</span>
+                <h1>Analog & Digital <br><span>Communication</span> Simulator</h1>
+                <p>An interactive, high-fidelity simulator designed for students and professionals to visualize complex communication concepts in real-time. Explore signals, sampling, modulation, and more.</p>
+                <div class="hero-btns">
+                    <a href="#visualizer" class="btn btn-primary">Start Exploring</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Abstract visual or animation could go here -->
+                <div class="floating-icons">
+                    <i class="fas fa-wave-square i1"></i>
+                    <i class="fas fa-signal i2"></i>
+                    <i class="fas fa-microchip i3"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="visualizer">
+        <div class="container">
+            <div class="section-header">
+                <h2>Module 1: Signal Visualizer</h2>
+                <p>Visualize the fundamental difference between continuous analog signals and discrete digital signals.</p>
+            </div>
+            <div class="simulator-card">
+                <div class="controls">
+                    <button id="btn-analog" class="btn-toggle active">Analog Signal</button>
+                    <button id="btn-digital" class="btn-toggle">Digital Signal</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="signalChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt-bg" id="sampling">
+        <div class="container">
+            <div class="section-header">
+                <h2>Module 2: Sampling Theorem</h2>
+                <p>Explore the Nyquist-Shannon sampling theorem. Adjust the sampling frequency to see proper reconstruction vs. aliasing.</p>
+            </div>
+            <div class="simulator-card">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="sampling-freq">Sampling Frequency ($f_s$): <span id="fs-val">5</span> Hz</label>
+                        <input type="range" id="sampling-freq" min="1" max="100" value="5">
+                    </div>
+                    <div class="info-box" id="sampling-info">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Nyquist Rate: 20 Hz</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="samplingChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="modulation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Module 3: Modulation Simulator</h2>
+                <p>Understand how information is encoded into carrier waves using Amplitude (AM), Frequency (FM), and Shift Keying (ASK).</p>
+            </div>
+            <div class="simulator-card">
+                <div class="controls">
+                    <button class="btn-mod active" data-mod="am">AM</button>
+                    <button class="btn-mod" data-mod="fm">FM</button>
+                    <button class="btn-mod" data-mod="ask">ASK</button>
+                    <div class="control-group">
+                        <label for="mod-freq">Carrier Frequency: <span id="fc-val">10</span> Hz</label>
+                        <input type="range" id="mod-freq" min="5" max="50" value="10">
+                    </div>
+                </div>
+                <div class="chart-grid">
+                    <div class="chart-sub">
+                        <small>Message Signal</small>
+                        <canvas id="msgChart"></canvas>
+                    </div>
+                    <div class="chart-sub">
+                        <small>Carrier Signal</small>
+                        <canvas id="carrierChart"></canvas>
+                    </div>
+                    <div class="chart-sub">
+                        <small>Modulated Signal</small>
+                        <canvas id="modulatedChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt-bg" id="noise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Module 4: Noise Simulation</h2>
+                <p>See the impact of interference by adding noise to a clean signal. Adjust the SNR to see signal degradation.</p>
+            </div>
+            <div class="simulator-card">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="noise-level">Noise Level: <span id="noise-val">0.1</span></label>
+                        <input type="range" id="noise-level" min="0" max="1" step="0.05" value="0.1">
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="noiseChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="linecoding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Module 5: Line Coding Visualizer</h2>
+                <p>Convert binary data into different line codes like NRZ and RZ waveforms.</p>
+            </div>
+            <div class="simulator-card">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="binary-input">Binary Data:</label>
+                        <input type="text" id="binary-input" value="101101" placeholder="e.g. 10101">
+                    </div>
+                    <div class="coding-types">
+                        <span class="badge active" data-code="nrz">NRZ</span>
+                        <span class="badge" data-code="rz">RZ</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="lineCodingChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ADC Simulator Project. Designed for Educational Excellence.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
