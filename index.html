@@ -95,14 +95,14 @@
     <section class="section" id="modulation">
         <div class="container">
             <div class="section-header">
-                <h2>Module 3: Modulation Simulator</h2>
-                <p>Understand how information is encoded into carrier waves using Amplitude (AM), Frequency (FM), and Shift Keying (ASK).</p>
+                <h2>Module 3: Digital Modulation Simulator</h2>
+                <p>Understand how digital information is encoded into carrier waves using Amplitude, Frequency, and Phase Shift Keying (ASK, FSK, PSK).</p>
             </div>
             <div class="simulator-card">
                 <div class="controls">
-                    <button class="btn-mod active" data-mod="am">AM</button>
-                    <button class="btn-mod" data-mod="fm">FM</button>
-                    <button class="btn-mod" data-mod="ask">ASK</button>
+                    <button class="btn-mod active" data-mod="ask">ASK</button>
+                    <button class="btn-mod" data-mod="fsk">FSK</button>
+                    <button class="btn-mod" data-mod="psk">PSK</button>
                     <div class="control-group">
                         <label for="mod-freq">Carrier Frequency: <span id="fc-val">10</span> Hz</label>
                         <input type="range" id="mod-freq" min="5" max="50" value="10">

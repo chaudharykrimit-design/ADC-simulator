@@ -186,7 +186,7 @@ const modCtx = document.getElementById('modulatedChart').getContext('2d');
 const modFreqSlider = document.getElementById('mod-freq');
 const fcValDisplay = document.getElementById('fc-val');
 
-let activeMod = 'am';
+let activeMod = 'ask';
 
 const chartOptions = {
     responsive: true,
@@ -199,7 +199,7 @@ const msgChart = new Chart(msgCtx, {
     type: 'line',
     data: {
         labels: Array.from({length: 200}, (_, i) => i),
-        datasets: [{ data: generateSine(1, 1, 200), borderColor: '#6366f1', pointRadius: 0 }]
+        datasets: [{ data: generateSquare(2, 1, 200).map(v => v > 0 ? 1 : 0), borderColor: '#6366f1', pointRadius: 0, stepped: true }]
     },
     options: chartOptions
 });
@@ -226,21 +226,21 @@ function updateModulation() {
     const fc = parseInt(modFreqSlider.value);
     fcValDisplay.innerText = fc;
     
-    const message = generateSine(1, 1, 200);
+    const message = generateSquare(2, 1, 200).map(v => v > 0 ? 1 : 0);
     const carrier = generateSine(fc, 1, 200);
     let modulated = [];
     
-    if (activeMod === 'am') {
-        modulated = message.map((m, i) => (1 + 0.5 * m) * Math.sin(2 * Math.PI * fc * (i / 200)));
-    } else if (activeMod === 'fm') {
+    if (activeMod === 'ask') {
+        modulated = carrier.map((c, i) => message[i] * c);
+    } else if (activeMod === 'fsk') {
         let phase = 0;
         for (let i = 0; i < 200; i++) {
-            phase += 2 * Math.PI * (fc + 5 * message[i]) / 200;
+            const currentFreq = message[i] === 1 ? fc + 5 : Math.max(1, fc - 5);
+            phase += 2 * Math.PI * currentFreq / 200;
             modulated.push(Math.sin(phase));
         }
-    } else if (activeMod === 'ask') {
-        const digitalMsg = message.map(m => m >= 0 ? 1 : 0);
-        modulated = carrier.map((c, i) => digitalMsg[i] * c);
+    } else if (activeMod === 'psk') {
+        modulated = carrier.map((c, i) => message[i] === 1 ? c : -c);
     }
     
     carrierChart.data.datasets[0].data = carrier;
