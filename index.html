@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -33,7 +37,8 @@
             <div class="hero-content">
                 <span class="badge">Professional Educational Tool</span>
                 <h1>Analog & Digital <br><span>Communication</span> Simulator</h1>
-                <p>An interactive, high-fidelity simulator designed for students and professionals to visualize complex communication concepts in real-time. Explore signals, sampling, modulation, and more.</p>
+                <p>An interactive, high-fidelity simulator designed for students and professionals to visualize complex
+                    communication concepts in real-time. Explore signals, sampling, modulation, and more.</p>
                 <div class="hero-btns">
                     <a href="#visualizer" class="btn btn-primary">Start Exploring</a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
@@ -54,7 +59,8 @@
         <div class="container">
             <div class="section-header">
                 <h2>Module 1: Signal Visualizer</h2>
-                <p>Visualize the fundamental difference between continuous analog signals and discrete digital signals.</p>
+                <p>Visualize the fundamental difference between continuous analog signals and discrete digital signals.
+                </p>
             </div>
             <div class="simulator-card">
                 <div class="controls">
@@ -72,12 +78,13 @@
         <div class="container">
             <div class="section-header">
                 <h2>Module 2: Sampling Theorem</h2>
-                <p>Explore the Nyquist-Shannon sampling theorem. Adjust the sampling frequency to see proper reconstruction vs. aliasing.</p>
+                <p>Explore the Nyquist-Shannon sampling theorem. Adjust the sampling frequency to see proper
+                    reconstruction vs. aliasing.</p>
             </div>
             <div class="simulator-card">
                 <div class="controls">
                     <div class="control-group">
-                        <label for="sampling-freq">Sampling Frequency ($f_s$): <span id="fs-val">5</span> Hz</label>
+                        <label for="sampling-freq">Sampling Frequency (f_s): <span id="fs-val">5</span> Hz</label>
                         <input type="range" id="sampling-freq" min="1" max="100" value="5">
                     </div>
                     <div class="info-box" id="sampling-info">
@@ -96,7 +103,8 @@
         <div class="container">
             <div class="section-header">
                 <h2>Module 3: Digital Modulation Simulator</h2>
-                <p>Understand how digital information is encoded into carrier waves using Amplitude, Frequency, and Phase Shift Keying (ASK, FSK, PSK).</p>
+                <p>Understand how digital information is encoded into carrier waves using Amplitude, Frequency, and
+                    Phase Shift Keying (ASK, FSK, PSK).</p>
             </div>
             <div class="simulator-card">
                 <div class="controls">
@@ -130,7 +138,8 @@
         <div class="container">
             <div class="section-header">
                 <h2>Module 4: Noise Simulation</h2>
-                <p>See the impact of interference by adding noise to a clean signal. Adjust the SNR to see signal degradation.</p>
+                <p>See the impact of interference by adding noise to a clean signal. Adjust the SNR to see signal
+                    degradation.</p>
             </div>
             <div class="simulator-card">
                 <div class="controls">
@@ -178,4 +187,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

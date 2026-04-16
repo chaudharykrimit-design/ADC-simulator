@@ -163,12 +163,12 @@ function updateSampling() {
     
     if (fs < 2 * fm) {
         samplingInfo.classList.add('warning');
-        samplingInfo.innerHTML = `<i class="fas fa-exclamation-triangle"></i> <span>Aliasing Occurring! $f_s < 2f_m$</span>`;
+        samplingInfo.innerHTML = `<i class="fas fa-exclamation-triangle"></i> <span>Aliasing Occurring! f_s < 2f_m</span>`;
         samplingInfo.style.background = 'rgba(239, 68, 68, 0.1)';
         samplingInfo.style.borderColor = '#ef4444';
     } else {
         samplingInfo.classList.remove('warning');
-        samplingInfo.innerHTML = `<i class="fas fa-check-circle"></i> <span>Proper Sampling: $f_s \\geq 2f_m$</span>`;
+        samplingInfo.innerHTML = `<i class="fas fa-check-circle"></i> <span>Proper Sampling: f_s >= 2f_m</span>`;
         samplingInfo.style.background = 'rgba(34, 197, 94, 0.1)';
         samplingInfo.style.borderColor = '#22c55e';
     }
